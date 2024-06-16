@@ -1,0 +1,63 @@
+.area-hoje{
+    width: 950px;
+}
+
+.titulo-hoje{
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--cor-verde-escuro);
+    margin: 1em 0 .8em 0;
+}
+.text-hoje{
+    font-family: var(--fonte-principal);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cor-verde-claro);
+    margin: 1em 0 .8em 1em;
+}
+.peladas-hoje{
+    margin: 2em 1em 2.5em 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.pelada-hoje{
+    margin-bottom: 1em;
+}
+.foto-pelada-hoje{
+    width: 275px;
+}
+.text-nome{
+    font-family: var(--fonte-principal);
+    color: var(--cor-verde-escuro);
+    font-size: 16px;
+    font-weight: 900;
+    margin: .3em 0 .5em 0;
+}
+.text-pelada-hoje{
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    color: var(--cor-verde-claro);
+    font-weight: 700;
+    margin: .3em 0 .5em 0;
+}
+.avaliacao-hoje{
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    color: var(--cor-dourado);
+    font-weight: 700;
+    margin: .3em 0 .5em .5em;
+}
+.estrela-hoje{
+    display: flex;
+    align-items: center;
+}
+.trofeu-hoje{
+    width: 20px;
+}
+.linha-hoje{
+    width: 800px;
+    border-top: 1px solid #898C86;
+}

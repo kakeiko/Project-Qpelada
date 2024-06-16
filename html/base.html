@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qpelada</title>
+</head>
+<body>
+    <div class="conteiner">
+        <aside class="barra-lateral">
+                <div class="logo">
+                    <img class="logo-imagem" src="{% static 'imagens/logo/logo-completo.svg' %}">
+                    <img class="linha-1" src="{% static 'imagens/icons/Line 1.svg' %}">
+                </div>
+                {% for message in messages %}
+                <div>
+                    <p>{{ message }}</p>
+                </div>
+                {% endfor %}
+                <div class="menus-laterais">
+                    <ul class="menu">
+                        <li class="menu-item menu-inicial"><a href="{% url 'home' %}" class="text-menu"><img class="icon-menu icon-inicial" src="{% static 'imagens/icons/bola-de-fut.png' %}">Inicial</a></li>
+                        <li class="menu-item menu-peladas"><a href="{% url 'peladas' %}" class="text-menu"><img class="icon-menu icon-peladas" src="{% static 'imagens/icons/campo.png' %}">Peladas</a></li>
+                        <li class="menu-item menu-Criar"><a href="{% url 'criar' %}" class="text-menu"><img class="icon-menu icon-Criar" src="{% static 'imagens/icons/prancheta.png' %}">Criar</a></li>
+                    </ul>
+                </div>
+                <div class="login-lateral">
+                    {% for n in nome %}
+                    {% for info in user %}
+                        <img class="linha-2" src="{% static 'imagens/icons/Line 1.svg' %}">
+                        {% if info.imagem == "" or info.imagem == null %}
+                        <a href="{% url 'perfil' %}" class="link-login"><img class="login-img" src="{% static 'imagens/icons/login-icon.png' %}"><p class="text-login">{{ nome.nome }}</p></a>
+                        {% else %}
+                        <a href="{% url 'perfil' %}" class="link-login"><img class="login-img" src="{{ info.imagem.url }}"><p class="text-login">{{ nome.nome }}</p></a>
+                        {% endif %}
+                    {%endfor%}
+                    {%endfor%}
+                </div>
+
+        </aside>
+        <div class="apoio"><p>.</p></div>
+        <div class="corpo-principal">
+{% block content %}{% endblock %}

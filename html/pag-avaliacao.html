@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/principais/pag-avaliacao.css' %}">
+
+            <div class="flex-card">
+                <div class="card">
+                    <div class="img-div">
+                        <img src="{{ pelada.foto.url }}" alt="" class="img-pelada">
+                    </div>
+                    <div class="text">
+                        <h2 class="text-titulo">Deixe sua avaliação aqui:</h2>
+                    </div>
+                    <form action="{% url 'avaliar' pelada.id %}" method="POST" class="formulario">
+                        {% csrf_token %}
+                        <div class="conteudo">
+                            <div class="inputs">
+                            {% for field in form.visible_fields %}
+                            {{ field}}
+                            </div>
+                    {% endfor %}
+                    {% for field in formP.visible_fields %}
+                    <div class="hidden">{{ field }}</div>
+                    {% endfor %}
+                        </div>
+                        <div class="btns">
+                            <a href="{% url 'pelada' pelada.id %}" class="voltar">Voltar</a>
+                            <button type="submit" class="avaliar">Avaliar</button>
+                            
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>
+{% endblock %}

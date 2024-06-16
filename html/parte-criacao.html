@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/principais/parte-criacao.css' %}">
+    
+            <div class="titulo">
+                <h2 class="titulo-criacao">Crie sua pelada</h2>
+            </div>
+            <hr class="linha-criacao">
+            <div class="area-criacao">
+                <div class="imagem">
+                    <img src="{% static 'imagens/icons/foto-pelada.png' %}" alt="" class="img-criacao">
+                </div>
+                <form class="formulario3" action="{% url 'criacao' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="formulario">
+                        {% for field in form.visible_fields %}
+                        <div class="labels-forms">
+                            <label for="{{ field.id_for_label }}" class="nome">{{ field.label }}:</label>
+                            {{ field}}                    
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="area-btn">
+                        <button class="btn-criar" type="submit">Criar</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}

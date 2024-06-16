@@ -1,0 +1,36 @@
+.btn-perso{
+    margin: 0 0 2em 35em;
+}
+.btn-zerar{
+    background: var(--cor-branco);
+    border: 1px solid var(--cor-branco);
+    border-radius: 10px;
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-vermelho);
+    padding: 8px 16px;
+    margin: 2em 0.5em;
+}
+.btn-editar{
+    background: var(--cor-branco);
+    border: 1px solid var(--cor-branco);
+    border-radius: 10px;
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-verde-escuro);
+    padding: 8px 16px;
+    margin: 2em .5em;
+}
+.btn-deletar{
+    background: var(--cor-vermelho);
+    border: 1px solid var(--cor-vermelho);
+    border-radius: 10px;
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-branco);
+    padding: 8px 16px;
+    margin: 2em .5em;
+}

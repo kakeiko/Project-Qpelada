@@ -1,0 +1,49 @@
+.img-pelada{
+    width: 210px;
+    margin: 2em;
+}
+.hidden{
+    display: none;
+}
+.text-titulo{
+    font-family: var(--fonte-principal);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-verde-escuro);
+}
+.inputs{
+    text-align: center;
+}
+select{
+    color: var(--cor-dourado);
+    font-size: 24px;
+    padding: 20px;
+    margin: 2em 0 ;
+    border: 2px solid var(--cor-dourado);
+    border-radius: 999px;
+}
+.avaliar{
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-offwhite);
+    background-color: var(--cor-dourado);
+    padding: 10px 16px;
+    border: 1px solid var(--cor-dourado);
+    border-radius:10px;
+}
+.voltar{
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    margin-bottom: .5em;
+    color: black;
+    text-decoration: underline;
+}
+.btns{
+    margin: 0 0 0 18em;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    width: 100px;
+}

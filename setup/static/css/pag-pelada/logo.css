@@ -1,0 +1,10 @@
+.logo-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 930px;
+}
+.logo-grande{
+    width: 400px;
+    margin: 1em 0;
+}

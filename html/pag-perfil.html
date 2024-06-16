@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/principais/pag-perfil.css' %}">
+
+    <div class="pag-perfil">
+        <div class="logout">
+            <a href="{% url 'logout' %}"><img class="img-logout" src="{% static 'imagens/icons/logout.svg' %}" alt=""></a>
+        </div>
+        <div class="perfil">
+            {% for info in user %}
+            {% if info.imagem == "" or info.imagem == null %}
+            <img class="img-perfil" src="{% static 'imagens/icons/login-icon.png' %}" alt="">
+            {% else %}
+                <img class="img-perfil" src="{{ info.imagem.url }}" alt="">
+            {% endif %}
+            <div class="nome-perfil">
+                {% for n in nome %}
+                
+                    <h2 class="titulo-perfil">{{ nome.nome }}</h2>
+                    <a href="{% url 'editarP' info.id %}"><img  src="{% static 'imagens/icons/lapis.png' %}" alt="" class="img-editar"></a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="caracteristicas">
+                <div class="carac-posi">
+                    <h3 class="titulo-posi">Posição:</h3>
+                    <p class="text-posi">{{ info.posicao }}</p>
+                </div>
+                <div class="carac-sobre">
+                    <h3 class="titulo-sobre">Sobre mim:</h3>
+                    <p class="text-sobre">{{ info.sobre }}</p>
+                </div>
+            {% endfor %}
+            <a href="{% url 'deletarperfil' %}" class="btn-deletar">Deletar</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/principais/pag-cadastro.css' %}">
+    
+            <div class="flex-card">
+                <div class="card">
+                    <div class="logo-p">
+                        <img src="{% static 'imagens/logo/logo.svg' %}" alt="" class="img-logo-p">
+                    </div>
+                    <form class="form-login" action="{% url 'cadastro'%}" method="POST">
+                        {% csrf_token %}
+                        <div class="formulario">
+                            {% for field in form.visible_fields %}
+                            <div class="labels-forms">
+                                <label for="{{ field.id_for_label }}" class="nome">{{ field.label }}</label>
+                                {{ field}}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="btns">
+                            <a href="{% url 'login' %}" class="btn-cadastrar">
+                                    <p>já tenho conta.</p>
+                            </a>
+                            <button class="btn-entrar" type="submit">Cadastrar</button>
+                        </div>
+                    </form>
+                    
+    
+</body>
+</html>
+{% endblock %}

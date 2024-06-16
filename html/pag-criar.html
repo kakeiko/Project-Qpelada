@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/principais/pag-criar.css' %}">
+
+            <div class="suas-peladas">
+                <h2 class="titulo-suas">Suas peladas</h2>
+                <div class="peladas">
+                    {% if cards %}
+                    {% for jogo in cards %}
+                    <a href="{% url 'peladae' jogo.id %}">
+                        <div class="pelada">
+                            <img src="{{ jogo.foto.url }}" alt="" class="foto-pelada">
+                            <h3 class="text-nome">Nome: {{ jogo.nome }}</h3>
+                            <p class="text-pelada campo">Campo: {{ jogo.campo }}</p>
+                            <p class="text-pelada hora">Horário: {{ jogo.hora }}</p>
+                            <p class="text-pelada dia">Dia: {{ jogo.dia }}</p>
+                            <div class="estrela"><img src="{% static 'imagens/icons/trofeu.png' %}" alt="" class="trofeu"><p class="avaliacao">{{ jogo.nota }}/5</p></div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </div>
+                <hr class="linha-suas">
+                <div class="area-criar">
+                    <div class="itens-criar">
+                        <h2 class="titulo-criar">Quer criar uma nova pelada?</h2>
+                        <a class="link-botao-criar" href="{% url 'criacao' %}"><img src="{% static 'imagens/icons/botao-criar.svg' %}" alt="" class="botao-criar"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}

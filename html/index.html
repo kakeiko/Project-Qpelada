@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static '/css/principais/index.css' %}">
+
+            <div class="area-busca">
+                <a href="{% url 'home' %}"><img src="{% static 'imagens/logo/logo-completo.svg' %}" alt="logo do site" class="logo-qpelada"></a>
+                <hr class="linha-busca">
+            </div>
+            <div class="area-destaque">
+                <h2 class="destaque-titulo">Se você está procurando as melhores avaliadas, aqui estão:</h2>
+                <h3 class="text-destaque">Destaques</h3>
+                <div class="peladas-destaque">
+                    <div class="peladas">
+                        {% if cards %}
+                    {% for jogo in cards %}
+                    <a href="{% url 'pelada' jogo.id %}">
+                        <div class="pelada">
+                            <img src="{{ jogo.foto.url }}" alt="Foto do jogo" class="foto-pelada">
+                            <h3 class="text-nome">Nome: {{ jogo.nome }}</h3>
+                            <p class="text-pelada campo">Campo: {{ jogo.campo }}</p>
+                            <p class="text-pelada hora">Horário: {{ jogo.hora }}</p>
+                            <p class="text-pelada dia">Dia: {{ jogo.dia }}</p>
+                            <div class="estrela"><img src="{% static 'imagens/icons/trofeu.png' %}" alt="imagem do trofeu" class="trofeu"><p class="avaliacao">{{ jogo.nota }}/5</p></div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+                    </div>
+                <hr class="linha-destaque">
+                </div>
+            </div>
+            <div class="area-hoje">
+                <h2 class="titulo-hoje">Qual é a boa de hoje?</h2>
+                <h3 class="text-hoje">As boas</h3>
+                <div class="peladas-hoje">
+                    {% if cards2 %}
+                    {% for jogo in cards2 %}
+                    <a href="{% url 'pelada' jogo.id %}">
+                        <div class="pelada">
+                            <img src="{{ jogo.foto.url }}" alt="Foto do jogo" class="foto-pelada">
+                            <h3 class="text-nome">Nome: {{ jogo.nome }}</h3>
+                            <p class="text-pelada campo">Campo: {{ jogo.campo }}</p>
+                            <p class="text-pelada hora">Horário: {{ jogo.hora }}</p>
+                            <p class="text-pelada dia">Dia: {{ jogo.dia }}</p>
+                            <div class="estrela"><img src="{% static 'imagens/icons/trofeu.png' %}" alt="imagem do trofeu" class="trofeu"><p class="avaliacao-hoje">{{ jogo.nota }}/5</p></div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+                    <p>
+                        Nenhuma pelada hoje. 
+                    </p>
+                    {% endif %}
+                </div>
+                <hr class="linha-hoje">
+            </div>
+            <div class="area-criar">
+                <div class="itens-criar">
+                    <h2 class="titulo-criar">Quer criar a sua própria pelada?</h2>
+                    <a class="link-botao-criar" href="{% url 'criacao' %}"><img src="{% static 'imagens/icons/botao-criar.svg' %}" alt="Imagem do botão 'clicar'" class="botao-criar"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}

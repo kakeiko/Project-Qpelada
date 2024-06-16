@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/principais/pag-login.css' %}">
+
+            <div class="flex-card">
+                <div class="card">
+                    <div class="logo-p">
+                        <img src="{% static 'imagens/logo/logo.svg' %}" alt="" class="img-logo-p">
+                    </div>
+                    <form class="form-login" action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="formulario">
+                            {% for field in form.visible_fields %}
+                            <div class="labels-forms">
+                                <label for="{{ field.id_for_label }}" class="nome">{{ field.label }}</label>
+                                {{ field}}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="btns">
+                            <a href="{% url 'cadastro' %}" class="btn-cadastrar">
+                                <div class="fundo-cadas">
+                                    <p>Cadastrar</p>
+                                </div>
+                            </a>
+                            <button class="btn-entrar" type="submit">Entrar</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>
+{% endblock %}

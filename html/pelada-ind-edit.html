@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/principais/pelada-ind.css' %}">
+    
+            <div class="info-pelada">
+                <div class="img-div">
+                    <img src="{{ pelada.foto.url }}" alt="" class="img-pelada">
+                </div>
+                <h3 class="text-titulo">Nome: {{ pelada.nome }}</h3>
+                <div class="gps">
+                    <p class="text-pelada text-campo">Campo: {{ pelada.campo }}</p>
+                </div>
+                <p class="text-pelada text-dia">Data e hora: {{ pelada.dia }}, {{ pelada.hora }}</p>
+                <p class="text-pelada text-preco">Preço: R${{ pelada.preço }}</p>
+                <div class="estrela"><img src="{% static 'imagens/icons/trofeu.png' %}" alt="" class="trofeu"><p class="avaliacao">{{ pelada.nota }}/5</p>
+                    <a href="{% url 'avaliar' pelada.id %}" class="btn-avaliar">Avaliar</a>
+                </div>
+                <p class="text-pelada text-regra">Regras: {{ pelada.regra }}</p>
+            </div>
+            <hr class="linha-info">
+            <div class="lista">
+                <form action="" method="POST" class="formulario">
+                    {% csrf_token %}
+                <div class="lista-jogo">
+                    {% for field in form.visible_fields %}
+                    {% endfor %}
+                    <h2 class="titulo-lista">Lista dos jogadores</h2>
+                    <ul class="lista-dos-jogadores">
+                        {% for jogador in list %}
+                        <li class="item-jogadores">{{ jogador.numero }} - {{jogador.jogador}}</li>
+                        {% endfor %}
+                        
+                    </ul>
+                </div>
+                <div class="div-btn">
+                    <button class="btn-participar">Participar</button>
+                </div>
+                    <div class="btn-perso">
+                    {% for jogo in cards %}
+                        <a href="{% url 'deletarlista' jogo.id %}" class="btn-zerar">Zerar lista</a>
+                        <a href="{% url 'editarpelada' jogo.id %}" class="btn-editar">Editar</a>
+                        <a href="{% url 'deletarpelada' jogo.id %}" class="btn-deletar">Deletar</a>
+                    {% endfor %}
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

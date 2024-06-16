@@ -1,0 +1,54 @@
+.titulo-suas{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-size: 36px;
+    font-weight: 900;
+    margin: 2em 1em;
+}
+.peladas{
+    margin: 2em 0 2em 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 880px;
+    
+}
+.pelada{
+    margin: 0 1em 1em 0;
+}
+.foto-pelada{
+    width: 275px;
+}
+.text-nome{
+    font-family: var(--fonte-principal);
+    color: var(--cor-verde-escuro);
+    font-size: 16px;
+    font-weight: 900;
+    margin: .3em 0 .5em 0;
+}
+.text-pelada{
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    color: var(--cor-verde-claro);
+    font-weight: 700;
+    margin: .3em 0 .5em 0;
+}
+.avaliacao{
+    font-family: var(--fonte-principal);
+    font-size: 12px;
+    color: var(--cor-dourado);
+    font-weight: 700;
+    margin: .3em 0 .5em .5em;
+}
+.estrela{
+    display: flex;
+    align-items: center;
+    
+}
+.trofeu{
+    width: 20px;
+}
+.linha-suas{
+    width: 800px;
+    border-top: 1px solid #898C86;
+}

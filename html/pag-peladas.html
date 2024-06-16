@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <link rel="stylesheet" href="{% static 'css/principais/pag-pelada.css' %}">
+ 
+            <div class="logo-principal">
+                <img src="{% static 'imagens/logo/logo-completo.svg' %}" alt="" class="logo-grande">
+            </div>
+            <div class="mecanismos-pesquisa">
+                <form method="GET" class="mecanismo-pesqui">
+                    <div class="filtros">
+                        {{ filter.form.as_p }}
+                    </div>
+                    <button type="submit" class="btn-filtrar">Filtrar</button>
+                </form>
+            </div>
+            <hr class="linha-peladas">
+            <div class="area-peladas">
+                <div class="peladas">
+                    {% if cards %}
+                    {% for jogo in cards %}
+                    <a href="{% url 'pelada' jogo.id %}">
+                        <div class="pelada">
+                            <img src="{{ jogo.foto.url }}" alt="" class="foto-pelada">
+                            <h3 class="text-nome">Nome: {{ jogo.nome }}</h3>
+                            <p class="text-pelada campo">Campo: {{ jogo.campo }}</p>
+                            <p class="text-pelada hora">Horário: {{ jogo.hora }}</p>
+                            <p class="text-pelada dia">Dia: {{ jogo.dia }}</p>
+                            <div class="estrela"><img src="{% static 'imagens/icons/trofeu.png' %}" alt="" class="trofeu"><p class="avaliacao">{{ jogo.nota }}/5</p></div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

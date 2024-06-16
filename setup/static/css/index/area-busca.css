@@ -1,0 +1,32 @@
+.area-busca{
+    text-align: center;
+    width: 950px;
+}
+.text-busca{
+    font-family: var(--fonte-principal);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--cor-verde-escuro);
+    margin: 1em 0 .8em 0;
+}
+.barra-buscar{
+    margin: 0 0 2.5em 0;
+    padding: 1em;
+    border: 3px solid var(--cor-verde-escuro);
+    border-radius: 9999px;
+    background-color: var(--cor-offwhite);
+    color: var(--cor-verde-escuro);
+    width: 400px;
+    font-weight: 500;
+}
+.barra-buscar::placeholder{
+    font-size: 12px;
+    text-align: center;
+    font-family: var(--fonte-principal);
+    color: var(--cor-verde-escuro);
+    background: url(../../imagens/icons/Union.svg) no-repeat;
+}
+.linha-busca{
+    width: 800px;
+    border-top: 1px solid #898C86;
+}

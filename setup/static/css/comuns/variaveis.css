@@ -1,0 +1,20 @@
+:root{
+    --cor-verde-claro: #9EC17B;
+    --cor-verde-escuro: #669853;
+    --cor-branco: #ffffff;
+    --cor-offwhite: #E2E6DF;
+    --cor-dourado: #DAA520;
+    --fonte-principal: 'Poppins';
+    --cor-vermelho: #F40000;
+}
+body{
+    background-color: var(--cor-offwhite);
+}
+.corpo-principal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.conteiner{
+    display: flex;
+}

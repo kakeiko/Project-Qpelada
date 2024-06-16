@@ -1,0 +1,62 @@
+.img-div{
+    text-align: center;
+    width: auto;
+}
+.img-pelada{
+    width: 600px;
+    margin: 3em 0 2em 0;
+}
+.text-titulo{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-weight: 900;
+    font-size: 32px;
+    margin: 0 2em 1em 2em;
+}
+.gps{
+    display: flex;
+    justify-content: space-between;
+}
+.text-pelada{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 2em 1em 2em;
+}
+.local{
+    width: 40px;
+    margin: 0 2em;
+    position: relative;
+    bottom: 15px;
+}
+.avaliacao{
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    color: var(--cor-dourado);
+    font-weight: 700;
+    margin: .3em 0 .5em .5em;
+}
+.estrela{
+    display: flex;
+    align-items: center;
+    
+}
+.btn-avaliar{
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-offwhite);
+    background-color: var(--cor-dourado);
+    padding: 10px 16px;
+    border-radius: 9999px;
+    margin: 1em 0 1em 35em;
+}
+.trofeu{
+    margin: 0 0 1em 2em;
+    width: 50px;
+}
+.linha-info{
+    width: 800px;
+    border-top: 1px solid #898C86;
+}

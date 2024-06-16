@@ -1,0 +1,16 @@
+.titulo{
+    text-align: center;
+    width: 950px;
+}
+.titulo-criacao{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-size: 36px;
+    font-weight: 900;
+    margin: 1em 0;
+}
+.linha-criacao{
+    width: 800px;
+    border-top: 1px solid #898C86;
+    
+}

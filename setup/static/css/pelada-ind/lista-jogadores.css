@@ -1,0 +1,32 @@
+.lista-jogo{
+    text-align: center;
+    width: auto;
+}
+.titulo-lista{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-size: 48px;
+    font-weight: 900;
+    margin: 1em 0 2em 0;
+}
+.item-jogadores{
+    color: var(--cor-verde-escuro);
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    margin: 0 0 .5em 0;
+}
+.div-btn{
+    display: flex;
+    justify-content: end;
+}
+.btn-participar{
+    background: var(--cor-verde-escuro);
+    border: 1px solid var(--cor-verde-escuro);
+    border-radius: 10px;
+    font-family: var(--fonte-principal);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-offwhite);
+    padding: 8px 16px;
+    margin: 2em 5em;
+}

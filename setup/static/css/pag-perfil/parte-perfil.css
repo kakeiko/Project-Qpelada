@@ -1,0 +1,29 @@
+.img-logout{
+    margin: 1em 0 1em 55em;
+    width: 100px;
+}
+.perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nome-perfil{
+    display: flex;
+}
+.img-perfil{
+    width: 150px;
+    border-radius: 999px;
+}
+.titulo-perfil{
+    margin: .5em;
+    font-family: var(--fonte-principal);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cor-verde-escuro);
+}
+.img-editar{
+    width: 25px;
+    height: 25px;
+    margin: 1em 0;
+}
