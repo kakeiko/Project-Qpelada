@@ -81,19 +81,24 @@ def pelada(request, jogo_id):
     
     if request.method == 'POST':
         form = ListaForms(request.POST)
-        if form.is_valid():
-            criar_lista = form.save(commit=False)
-            criar_lista.dono = jogospeladas
-            criar_lista.jogador = request.user
-            if ListaDeJogadores.objects.filter(dono = jogo_id) == 0 : 
-                criar_lista.numero = len(lista) + 2
-            else:
-                criar_lista.numero = len(lista) + 1
-            criar_lista.save()
-            
-            
-            messages.success(request, 'Nome adicionado')
+        nome_lista = ListaDeJogadores.objects.filter(dono = jogospeladas, jogador = request.user)
+        if nome_lista.exists():
+            messages.error(request, 'Seu nome já está na lista')
             return redirect('pelada', jogo_id)
+        else:
+            if form.is_valid():
+                criar_lista = form.save(commit=False)
+                criar_lista.dono = jogospeladas
+                criar_lista.jogador = request.user
+                if ListaDeJogadores.objects.filter(dono = jogo_id) == 0 : 
+                    criar_lista.numero = len(lista) + 2
+                else:
+                    criar_lista.numero = len(lista) + 1
+                criar_lista.save()
+                
+                
+                messages.success(request, 'Nome adicionado')
+                return redirect('pelada', jogo_id)
         
        
         
@@ -122,20 +127,25 @@ def avaliacao(request, jogo_id):
     if request.method == 'POST':
         form = TrofeusForms(request.POST)
         form_pelada = CriarPelada(request.POST, request.FILES, instance=peladabd)
-        if form.is_valid() and form_pelada.is_valid():
-            criar_trofeu = form.save(commit=False)
-            criar_trofeu.pelada = jogospeladas
-            criar_trofeu.eleitor = request.user
-            criar_trofeu.save()
-            for item in avaliacoes:
-                soma_nota += int(item.trofeus)
-    
-            nota = soma_nota / len(avaliacoes)
-            criar_nota = form_pelada.save(commit=False)
-            criar_nota.nota = nota
-            criar_nota.save()
-            messages.success(request, 'Pelada avaliada!')
-            return redirect('pelada', jogo_id)        
+        form_validacao = TrofeusBd.objects.filter(pelada = jogospeladas, eleitor = request.user)
+        if form_validacao.exists():
+            messages.error(request, 'Você ja avaliou essa pelada!')
+            return redirect('pelada', jogo_id)
+        else:
+            if form.is_valid() and form_pelada.is_valid():
+                criar_trofeu = form.save(commit=False)
+                criar_trofeu.pelada = jogospeladas
+                criar_trofeu.eleitor = request.user
+                criar_trofeu.save()
+                for item in avaliacoes:
+                    soma_nota += int(item.trofeus)
+        
+                nota = soma_nota / len(avaliacoes)
+                criar_nota = form_pelada.save(commit=False)
+                criar_nota.nota = nota
+                criar_nota.save()
+                messages.success(request, 'Pelada avaliada!')
+                return redirect('pelada', jogo_id)        
 
     return render(request, 'pag-avaliacao.html', {'form': form, "pelada": jogospeladas, "nome": nome_login, "user": usuario, 'formP':form_pelada} )
 

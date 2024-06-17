@@ -33,7 +33,6 @@ def login_pg(request):
                 )
 
                 usuario_info.save()
-                messages.success(request, "essa porra foi")
                 return redirect('home')
 
             return redirect('home')
@@ -53,13 +52,17 @@ def cadastro_pg(request):
     if request.method == 'POST':
         form = CadastroForms(request.POST)
 
-        
-        
         if form.is_valid():
-            if form['senha_cadastro'].value() != form['confirm_senha'].value():
-                messages.error(request, 'As senhas estão diferentes!')
-                return redirect('cadastro')
-        
+            senha_verificar = form['senha_cadastro'].value()
+            senha_confirmar = form['confirm_senha'].value()
+            # if  senha_verificar != form['confirm_senha'].value():
+            #     messages.error(request, 'As senhas estão diferentes!')
+            #     return redirect('cadastro')
+            # if len( senha_verificar) < 8:
+            #     messages.error(request, 'A senha tem que conter no minímo 8 dígitos.')
+            #     return redirect('cadastro')
+            VerificaSenha(senha_verificar, senha_confirmar, request)
+            
             nome = form['nome_cadastro'].value()
             email = form['email'].value()
             senha = form['senha_cadastro'].value()
@@ -73,9 +76,9 @@ def cadastro_pg(request):
                 email= email,
                 password= senha
             )
-            
+                
             usuario.save()
-            
+                
             messages.success(request, 'Cadastro concluído!') 
             return redirect('login')
             
@@ -86,3 +89,26 @@ def logout(request):
     auth.logout(request)
     messages.success(request,"Logout efetuado com sucesso!")
     return redirect('home')
+
+def VerificaSenha(senha, confirm_senha, request):
+    lMaisc, lMins, number, length = 0, 0, 0, 0
+    length = len(senha)
+    
+    if  senha != confirm_senha:
+        messages.error(request, 'As senhas estão diferentes!')
+        return redirect('cadastro')
+    if len(senha) < 8:
+        messages.error(request, 'A senha tem que conter no minímo 8 dígitos.')
+        return redirect('cadastro')
+    else:
+        for i in range(0, length):
+            if senha[i].isupper():
+                lMaisc += 1
+            elif senha[i].islower():
+                lMins += 1
+            elif senha[i].isdigit():
+                number += 1
+    if lMaisc != 0 and lMins != 0 and number != 0 :
+            return True
+    else:
+        messages.error(request, 'A senha deve conter, letras maiúsculas, minúsculas e números')
